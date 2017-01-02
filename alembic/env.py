@@ -15,7 +15,16 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+#target_metadata = None
+
+from os.path import abspath, dirname
+import sys
+# print(sys.path)
+sys.path.insert(0, abspath('.'))
+# print("name %s - package %s" % (__name__, __package__))
+
+from app.models import Base
+target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
